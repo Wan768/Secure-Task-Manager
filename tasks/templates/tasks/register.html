@@ -1,0 +1,14 @@
+{% extends 'tasks/main.html' %}
+{% block content %}
+<h2>Register</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Register" class="btn" style="background-color: #5cb85c;">
+</form>
+
+<p style="margin-top: 20px;">
+    Already have an account? <a href="{% url 'login' %}">Login here</a>
+</p>
+{% endblock content %}

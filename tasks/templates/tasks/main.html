@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Manager Baseline</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f9; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
+        .task-row { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee; }
+        .btn { padding: 5px 10px; text-decoration: none; border-radius: 4px; background: #333; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>

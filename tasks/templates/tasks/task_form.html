@@ -1,0 +1,11 @@
+{% extends 'tasks/main.html' %}
+{% block content %}
+<p><a href="{% url 'tasks' %}">⬅ Go Back</a></p>
+<h2>Task Details Form</h2>
+
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Save Task" class="btn" style="background-color: #5cb85c;">
+</form>
+{% endblock content %}

@@ -1,0 +1,58 @@
+{% extends 'tasks/main.html' %}
+{% block content %}
+
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <h1>Hello {{request.user|title}}</h1>
+    <form method="POST" action="{% url 'logout' %}" style="display: inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn" style="background-color: #d9534f; border: none; cursor: pointer;">
+        Logout
+    </button>
+</form>
+</div>
+
+<hr>
+<div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+    <a href="{% url 'task-create' %}" class="btn" style="background-color: #5cb85c;">+ Add New Task</a>
+    
+    <form method="GET">
+        <label for="status-filter"><strong>Filter by:</strong></label>
+        <select name="status-filter" onchange="this.form.submit()" style="padding: 5px;">
+            <option value="All" {% if current_filter == 'All' %}selected{% endif %}>All</option>
+            <option value="To do" {% if current_filter == 'To do' %}selected{% endif %}>To do</option>
+            <option value="In Progress" {% if current_filter == 'In Progress' %}selected{% endif %}>In Progress</option>
+            <option value="Completed" {% if current_filter == 'Completed' %}selected{% endif %}>Completed</option>
+        </select>
+    </form>
+</div>
+
+<h3>Your Tasks:</h3>
+<div>
+    {% for task in tasks %}
+    <div class="task-row">
+        <div>
+            {% if task.status == 'Completed' %}
+            <i><s><a href="{% url 'task' task.id %}">{{task.title}}</a></s></i> ({{task.status}})
+            {% else %}
+            <a href="{% url 'task' task.id %}"><strong>{{task.title}}</strong></a> - <em>{{task.status}}</em>
+            {% endif %}
+
+            {% if task.deadline %}
+            <br><small>📅 <strong>Deadline:</strong> {{ task.deadline|date:"d M Y" }}</small>
+            {% endif %}
+
+            {% if task.uploaded_file %}
+            <br><small>📎 <a href="{{ task.uploaded_file.url }}" target="_blank">View File</a></small>
+            {% endif %}
+        </div>
+        <div>
+            <a href="{% url 'task-update' task.id %}">Edit</a> | 
+            <a href="{% url 'task-delete' task.id %}" style="color: red;">Delete</a>
+        </div>
+    </div>
+    {% empty %}
+    <p>No tasks found.</p>
+    {% endfor %}
+</div>
+
+{% endblock content %}
