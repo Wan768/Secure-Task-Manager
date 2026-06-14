@@ -3,7 +3,6 @@ Secure Software Development using Django Python
 It is recommended to run using kali linux in virtual box.
 
 # Repository Cloning
-- Fetch the repository codebase down to your localized development space:
 Run in VSC Terminal:
 
 git clone https://github.com/Wan768/Secure-Task-Manager.git
