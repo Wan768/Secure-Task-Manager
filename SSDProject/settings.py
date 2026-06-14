@@ -149,3 +149,6 @@ if not DEBUG:
     SECURE_HSTS_SECONDS = 31536000 # 1 Year
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
+
+    SESSION_COOKIE_AGE = 1800  # Automatically log users out after 1800 seconds of inactivity
+    SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Destroysession when the user closes the tab
