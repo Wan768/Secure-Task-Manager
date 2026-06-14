@@ -7,14 +7,14 @@ Fetch the repository codebase down to your localized development space:
 Run in VSC Terminal:
 bash
 git clone https://github.com/Wan768/Secure-Task-Manager.git
-cd SSDProject
+
 
 # Windows
-python -m venv venv
+python -m venv venv  
 venv\Scripts\activate
 
 # macOS/Linux
-python3 -m venv venv
+python3 -m venv venv  
 source venv/bin/activate
 
 # Install requirements 
@@ -26,10 +26,10 @@ python -c "from django.core.management.utils import get_random_secret_key; print
 # Create a file named .env directly inside the root folder (where manage.py lives) and copy the following configuration block into it:
 Paste the key generated in the .env file
 # .env File
-SECRET_KEY=django-insecure-local-dev-token-replace-this-with-a-stochastic-hash
+SECRET_KEY=django-insecure-local-dev-token-replace-this-with-a-stochastic-hash  
 DEBUG=True
 
-python manage.py makemigrations
+python manage.py makemigrations  
 python manage.py migrate
 
 # Create superuser/admin; It wil be used when login as admin to access admin dashboard
