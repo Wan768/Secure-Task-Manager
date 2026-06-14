@@ -3,7 +3,7 @@ Secure Software Development using Django Python
 
 
 - Repository Cloning
-Fetch the repository codebase down to your localized development space:
+- Fetch the repository codebase down to your localized development space:
 Run in VSC Terminal:
 bash
 git clone https://github.com/Wan768/Secure-Task-Manager.git
