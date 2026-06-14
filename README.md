@@ -24,7 +24,7 @@ pip install -r requirements.txt
 python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 
 # Create a file named .env directly inside the root folder (where manage.py lives) and copy the following configuration block into it:
-# Paste the key generated in the .env file
+Paste the key generated in the .env file
 # .env File
 SECRET_KEY=django-insecure-local-dev-token-replace-this-with-a-stochastic-hash
 DEBUG=True
