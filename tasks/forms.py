@@ -5,7 +5,7 @@ from django.core.validators import RegexValidator
 from django.core.files.uploadedfile import UploadedFile
 
 class TaskForm(forms.ModelForm):
-    # Regex (Whitelisting): Only letters, numbers, and spaces allowed
+    # Regex 
     title_validator = RegexValidator(
         regex=r'^[a-zA-Z0-9\s]+$',
         message="Title must only contain alphanumeric characters and spaces.",
@@ -17,7 +17,6 @@ class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
         fields = ['title', 'description', 'status', 'deadline', 'uploaded_file']
-        # calendar picker
         widgets = {
             'deadline': forms.DateInput(attrs={'type': 'date'})
         }
@@ -28,7 +27,7 @@ class TaskForm(forms.ModelForm):
             raise forms.ValidationError("Description is too short. Please be more specific.")
         return description
 
-    # Secure File Upload Validation (MIME & Extension)
+    # Secure File Upload Validation 
     def clean_uploaded_file(self):
         file = self.cleaned_data.get('uploaded_file')
         
