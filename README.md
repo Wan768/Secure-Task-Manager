@@ -1,4 +1,4 @@
-# Secure Django Task Manager 
+# Secure Django Task Manager
 Secure Software Development using Django Python  
 It is recommended to run using kali linux in virtual box.
 If running in windows, use the incognito tab to run the web app to avoid error.
