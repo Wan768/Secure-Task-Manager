@@ -1,6 +1,5 @@
 from django.urls import path
 from django.contrib.auth.views import LogoutView
-# Add RegisterPage to imports 
 from .views import TaskList, TaskDetail, TaskCreate, TaskUpdate, TaskDelete, CustomLoginView, RegisterPage
 
 urlpatterns = [
