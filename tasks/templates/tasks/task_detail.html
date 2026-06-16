@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Details - {{ task.title }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+        .card { border: 1px solid #ccc; padding: 20px; border-radius: 5px; max-width: 600px; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #0066cc; text-decoration: none; }
+        .back-btn:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <h2>Task Details</h2>
+    
+    <div class="card">
+        <h3>{{ task.title }}</h3>
+        <p><strong>Status:</strong> {{ task.status }}</p>
+        
+        {% if task.description %}
+            <p><strong>Description:</strong> {{ task.description }}</p>
+        {% endif %}
+
+        {% if task.deadline %}
+            <p><strong>📅 Deadline:</strong> {{ task.deadline|date:"d M Y" }}</p>
+        {% endif %}
+
+        {% if task.uploaded_file %}
+            <p><strong>📎 Attachment:</strong> 
+                <a href="{{ task.uploaded_file.url }}" target="_blank">View Uploaded File</a>
+            </p>
+        {% endif %}
+    </div>
+
+    <a class="back-btn" href="{% url 'tasks' %}">← Back to Task List</a>
+
+</body>
+</html>
