@@ -80,7 +80,6 @@ WSGI_APPLICATION = 'SSDProject.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -91,7 +90,6 @@ DATABASES = {
 
 
 # Password validation
-# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -110,7 +108,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/6.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -122,7 +119,6 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
 
@@ -137,18 +133,17 @@ FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880
 # settings.py
 
 if not DEBUG:
-    # 1. Force all HTTP traffic to redirect to HTTPS securely
+    # Force all HTTP traffic to redirect to HTTPS securely
     SECURE_SSL_REDIRECT = True
     
-    # 2. Prevent cookies leaks
+    # Prevent cookies leaks
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     
-    # 3. HTTP Strict Transport Security (HSTS)
-    # Tells browsers to only connect to your site via HTTPS for the next year
+    # HTTP Strict Transport Security (HSTS)
     SECURE_HSTS_SECONDS = 31536000 # 1 Year
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
 
-    SESSION_COOKIE_AGE = 1800  # Automatically log users out after 1800 seconds of inactivity
+    SESSION_COOKIE_AGE = 1800  # Automatically log users out after 1800 seconds of no activity
     SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Destroysession when the user closes the tab
