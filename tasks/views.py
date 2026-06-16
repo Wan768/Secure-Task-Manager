@@ -26,15 +26,12 @@ class RegisterPage(FormView):
     success_url = reverse_lazy('tasks')
 
     def form_valid(self, form):
-        # Save the new user to the database
         user = form.save()
-        # Automatically log the user in right after they register
         if user is not None:
             login(self.request, user)
         return super().form_valid(form)
 
     def get(self, *args, **kwargs):
-        # Prevent logged-in users from seeing the register page
         if self.request.user.is_authenticated:
             return redirect('tasks')
         return super().get(*args, **kwargs)
@@ -45,10 +42,8 @@ class TaskList(LoginRequiredMixin, ListView):
     template_name = 'tasks/task_list.html'
 
     def get_queryset(self):
-        # 1. Access Control, all tasks belonging to the current user
         queryset = Task.objects.filter(user=self.request.user)
         
-        # Apply status filtering in the dropdown
         status_filter = self.request.GET.get('status-filter')
         if status_filter and status_filter != 'All':
             queryset = queryset.filter(status=status_filter)
@@ -98,10 +93,8 @@ class TaskDelete(LoginRequiredMixin, DeleteView):
     def get_queryset(self):
         return Task.objects.filter(user=self.request.user)
 
-    # Triggered when the deletion is confirmed
     def form_valid(self, form):
         task = self.get_object()
-        # Log the deletion event
         logger.warning(
             f"SECURITY AUDIT: User '{self.request.user.username}' deleted Task ID {task.id} (Title: '{task.title}')"
         )
