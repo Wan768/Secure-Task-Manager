@@ -4,20 +4,18 @@ It is recommended to run using kali linux in virtual box.
 If running in windows, use the incognito tab to run the web app to avoid error.
 
 # Repository Cloning
-Run in VSC Terminal:
+Run in VSC Terminal :
 
 git clone https://github.com/Wan768/Secure-Task-Manager.git
 
 
-# Windows
+# How to run on Windows (VSC)  
+- Make sure to use Command Prompt instead of bash
+<br>
 `python -m venv venv ` 
 <br>
 `venv\Scripts\activate`
 
-# macOS/Linux
-`python3 -m venv venv`
-<br>
-`source venv/bin/activate`
 
 # Install requirements 
 `pip install -r requirements.txt`
@@ -53,7 +51,7 @@ Paste the key generated in the .env file
 # Access Admin Dashboard
 Add `/admin` at the url link
 
-# Run on Kali Linux  
+# How To Run on Kali Linux  
 - Install the Native Linux System Dependency
 
 `sudo apt update`
